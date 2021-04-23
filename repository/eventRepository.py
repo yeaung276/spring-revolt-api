@@ -15,7 +15,8 @@ def add(db:Session,title='',title_img='',location='',datetime_id=None,):
     return new_event
 
 def deleteById(db:Session,id:int):
-    db.query(models.Event).filter(models.Event.id==id).delete(synchronize_session=False)
+    event = db.query(models.Event).filter(models.Event.id==id).first()
+    db.delete(event)
     db.commit()
     return 1
 

@@ -2,7 +2,7 @@ from sqlalchemy.orm import Session
 from models import models
 
 def findByEventIdandTagId(db:Session,eventId:int,tagId:int):
-    return db.query.filter(models.TagMapper.tag_id==tagId).filter(models.TagMapper.event_id)
+    return db.query(models.TagMapper).filter(models.TagMapper.tag_id==tagId).filter(models.TagMapper.event_id==eventId)
 
 def getById(db:Session,id:int):
     return db.query(models.TagMapper).get(id)

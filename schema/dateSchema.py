@@ -14,10 +14,17 @@ class DateResponse(BaseModel):
     class Config():
         orm_mode=True
 
+class Date(BaseModel):
+    datetime: datetime
+    class Config():
+        orm_mode=True
+
 class EventDetail(Event):
     title:str
     location:str
     title_img:str
+    datetime: Date
+
 
 class EventsByDateResponse(BaseModel):
     id:int
