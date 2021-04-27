@@ -25,6 +25,27 @@ class Event(Base):
     tags = relationship('TagMapper',back_populates='event')
     contents = relationship('Content',back_populates='event')
 
+class Location(Base):
+    __tablename__ = 'Location'
+
+    id = Column(Integer, index=True, primary_key=True)
+    name = Column(String)
+    address = Column(String)
+    region = Column(String)
+    cover_img = Column(String)
+    content = Column(String)
+
+class Person(Base):
+    __tablename__ = 'Person'
+    
+    id = Column(Integer, index=True, primary_key=True)
+    name = Column(String)
+    org = Column(String)
+    desc = Column(String)
+    age = Column(Integer)
+    photo = Column(String)
+    content = Column(String)
+
 class Date(Base):
     __tablename__ = 'Date'
     id = Column(Integer, index=True, primary_key=True)
