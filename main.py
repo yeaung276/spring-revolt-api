@@ -8,6 +8,7 @@ import routers.date as Dates
 import routers.location as Locations
 import routers.content as Contents
 import routers.person as Persons
+import routers.file as Files
 from database import Base, engine
 from models import models
 
@@ -30,6 +31,7 @@ app.include_router(Dates.dateRouter)
 app.include_router(Contents.contentRouter)
 app.include_router(Locations.locationRouter)
 app.include_router(Persons.personRouter)
+app.include_router(Files.fileRouter)
 
 @app.get('/')
 def hello():
