@@ -33,7 +33,8 @@ def createEvent(requestBody:eventSch.EventRequestBody,db:Session=Depends(get_db)
                                 location=requestBody.location,datetime_id=date.id)
     # add default content
     contentRepo.add(db,event_id=new_event.id)
-    return new_event
+
+    return {"id": new_event.id}
 
 @eventRouter.put('/update-event/{id}',status_code=status.HTTP_202_ACCEPTED)
 def updateEvent(id:int,requestBody:eventSch.EventRequestBody,db:Session=Depends(get_db)):
