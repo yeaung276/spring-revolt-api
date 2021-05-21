@@ -29,7 +29,7 @@ def getTimeline(id:int,db:Session=Depends(get_db)):
 def createTimeline(requestBody: timelineSch.Timeline,db:Session=Depends(get_db)):
     if(requestBody.create_event):
         event = eventSch.EventRequestBody(title=requestBody.title,title_img='',location='',datetime=requestBody.datetime)
-        event_id = createEvent(event,db).id
+        event_id = createEvent(event,db)["id"]
     else:
         event_id = None
     return timelineRepo.add(db,datetime=requestBody.datetime,title=requestBody.title,
